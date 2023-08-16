@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./Home";
 import Movieinfo from "./Movies/Movieinfo";
@@ -6,23 +6,16 @@ import Searchresults from "./Searchresults";
 import "./Styling/toggle.css";
 import ShowInfo from "./TV/ShowInfo";
 import Searchthemovie from "./collect/fetchsearch";
-import Preloader from "./preloading";
 
 export default function FrontPage() {
   const [searchvalue, setsearchvalue] = useState("");
   const [searchresult, setsearchresult] = useState([]);
-  const [loading, setLoading] = useState(true);
+
   const [isDropdownOpen, setisDropdownOpen] = useState(false);
   const [isDarkmode, setisDarkmode] = useState(false);
   const [isLoggedin, setisLoggedin] = useState(true);
   const screenwidth = window.innerWidth;
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3500);
-  }, []);
 
   function toggleLoggedin() {
     setisLoggedin(!isLoggedin);
@@ -43,9 +36,7 @@ export default function FrontPage() {
     setisDropdownOpen(!isDropdownOpen);
   };
 
-  return loading ? (
-    <Preloader />
-  ) : (
+  return (
     <>
       <div className="Navbar">
         <h1>

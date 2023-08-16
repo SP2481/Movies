@@ -16,13 +16,7 @@ export default function BollywoodMovies() {
     const scrollContainer = ScrollcontainerRef.current;
     scrollContainer.scrollBy({ left: 500, behaviour: "smooth" });
   };
-  if (Movielist.isLoading) {
-    return (
-      <div className="pre-loader">
-        <div className="loader"></div>
-      </div>
-    );
-  }
+
   if (Movielist.error) {
     return <div>Error: {Movielist.error.message}</div>;
   }
