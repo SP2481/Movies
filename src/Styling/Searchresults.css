@@ -12,7 +12,10 @@
     border: 1px solid transparent;
     border-radius: 10px;
     margin-bottom: 1em;
-    box-shadow: 5px 5px 2px 5px rgb(181, 181, 181);
+    box-shadow: 5px 5px 10px 2px rgb(181, 181, 181);
+    flex-grow: 1;
+    max-width: 60vw;
+    flex-shrink: 0;
 }
 
 .result-image>h1 {
@@ -135,4 +138,24 @@
 .prev-button:hover span:after {
     opacity: 1;
     left: 0;
+}
+
+@media (max-width:420px) {
+    .total-viewport {
+        width: 100%;
+
+    }
+
+    .results-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    .results-poster {
+        width: 15vw;
+        height: 20vh;
+        padding: 10px;
+    }
 }

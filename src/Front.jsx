@@ -15,6 +15,7 @@ export default function FrontPage() {
   const [isDropdownOpen, setisDropdownOpen] = useState(false);
   const [isDarkmode, setisDarkmode] = useState(false);
   const [isLoggedin, setisLoggedin] = useState(true);
+  const screenwidth = window.innerWidth;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,15 +42,6 @@ export default function FrontPage() {
   const toggleDropdown = () => {
     setisDropdownOpen(!isDropdownOpen);
   };
-  // useQuery({
-  //   queryKey: ["result", searchvalue],
-  //   queryFn: () => Searchthemovie(searchvalue),
-  //   onSuccess: (data) => {
-  //     console.log(data);
-  //     setsearchresult(data);
-  //   },
-  //   enabled: false,
-  // });
 
   return loading ? (
     <Preloader />

@@ -60,19 +60,20 @@ export default function Movieinfo() {
                 </li>
               </ul>
             </div>
-            <button className="trailer-button">Play trailer</button>
-
             <h3 className="tagline">
               <i>{result.tagline}</i>
             </h3>
             <p className="overview">{result.overview}</p>
-            <Link to={result.homepage}>
-              <button className="homepage-button">
-                <span>
-                  <p>Homepage</p>
-                </span>
-              </button>
-            </Link>
+            <div className="both-buttons">
+              <button className="trailer-button">Play trailer</button>
+              <Link to={result.homepage}>
+                <button className="homepage-button">
+                  <span>
+                    <p>Homepage</p>
+                  </span>
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
