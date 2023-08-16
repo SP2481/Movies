@@ -1,0 +1,40 @@
+.pre-loading-page {
+    height: 100vh;
+}
+
+.first-half-preloading-page {
+    height: 50vh;
+    background-color: rgb(30, 50, 97);
+    animation: left-right 2s forwards;
+
+}
+
+@keyframes left-right {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+
+}
+
+
+.second-half-preloading-page {
+    height: 50vh;
+    background-color: rgb(30, 50, 97);
+    animation: right-left 2s forwards;
+}
+
+@keyframes right-left {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}

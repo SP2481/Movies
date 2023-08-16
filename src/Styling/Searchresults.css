@@ -1,0 +1,138 @@
+.total-viewport {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.results-container {
+    display: flex;
+    width: 50vw;
+    height: 20vh;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    box-shadow: 5px 5px 2px 5px rgb(181, 181, 181);
+}
+
+.result-image>h1 {
+    font-size: 20px;
+    width: 10vw;
+    height: 10vh;
+    font-weight: 100;
+    padding: 10px;
+}
+
+.results-poster {
+    width: 10vw;
+    height: 20vh;
+    padding: 10px;
+}
+
+.results-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 5px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover {
+
+    transition: all 0.1s ease-out;
+    color: blue;
+}
+
+.blah-blah {
+    display: flex;
+    align-items: center;
+
+}
+
+.other-info {
+    display: flex;
+
+    align-items: center;
+    font-weight: 100;
+}
+
+.heading {
+    font-size: 1em;
+    font-weight: 100;
+}
+
+.page-switching {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    height: 10vh;
+}
+
+.pageNum {
+    font-weight: 100;
+    font-size: 1.5em;
+    font-weight: 100;
+}
+
+.butt {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: rgb(30, 50, 97);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    padding: 16px;
+    width: 130px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.butt span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.next-button span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+}
+
+.prev-button span:after {
+    content: '«';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -15px;
+    transition: 0.5s;
+}
+
+.next-button:hover span {
+    padding-right: 15px;
+}
+
+.prev-button:hover span {
+    padding-left: 15px;
+}
+
+.next-button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.prev-button:hover span:after {
+    opacity: 1;
+    left: 0;
+}
