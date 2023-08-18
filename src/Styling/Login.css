@@ -57,7 +57,7 @@
 
 .signup-button {
     margin-left: 18px;
-    margin-top: 40px;
+    margin-top: 32px;
     width: 250px;
     background-color: #ffffff;
     color: #080710;
@@ -84,8 +84,8 @@
 
 .goggle,
 .facebook {
-    width: 20vw;
-    height: 3.5vh;
+    width: 100px;
+    height: 30px;
     border-radius: 5px;
     border: none;
     text-align: center;
