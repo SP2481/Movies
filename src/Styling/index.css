@@ -111,7 +111,7 @@ h1 a {
 
 .Logout-dropdown {
     border-top: 1px solid black;
-    cursor: default;
+    cursor: pointer;
 }
 
 .dropdown {

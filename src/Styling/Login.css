@@ -1,0 +1,107 @@
+.main-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+    border: solid 2px none;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 5px 15px 5px #858786;
+    position: absolute;
+    top: 20%;
+}
+
+.form * {
+    font-family: "Poppins", sans-serif;
+    color: #000000;
+    letter-spacing: 0.5px;
+}
+
+.form .heading {
+    font-size: 25px;
+    font-weight: 550;
+    text-align: center;
+    padding-top: 0.5em;
+
+}
+
+.labels {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.signin-input {
+    display: block;
+    height: 50px;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.check {
+    width: 20px;
+    height: 50px;
+}
+
+.signup-button {
+    margin-left: 18px;
+    margin-top: 40px;
+    width: 250px;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+    margin-left: 0;
+}
+
+.signup-button:hover {
+    background-color: #080710;
+    color: white;
+}
+
+.social {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.social div {
+    width: 100px;
+    border-radius: 3px;
+    padding: 5px 10px 10px 5px;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    text-align: center;
+    align-self: center;
+    font-weight: 500;
+    transition: all 0.5s ease-in;
+
+}
+
+.go {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.social .go,
+.social .fb {
+    cursor: default;
+    color: white;
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./Home";
+import Login from "./LoginPage";
 import Movieinfo from "./Movies/Movieinfo";
 import Searchresults from "./Searchresults";
 import "./Styling/toggle.css";
@@ -13,13 +14,17 @@ export default function FrontPage() {
 
   const [isDropdownOpen, setisDropdownOpen] = useState(false);
   const [isDarkmode, setisDarkmode] = useState(false);
-  const [isLoggedin, setisLoggedin] = useState(true);
+  // const [isLoggedin, setisLoggedin] = useState(true);
   const screenwidth = window.innerWidth;
   const navigate = useNavigate();
 
-  function toggleLoggedin() {
-    setisLoggedin(!isLoggedin);
+  function Gotopage() {
+    navigate("/login");
   }
+
+  // function toggleLoggedin() {
+  //   setisLoggedin(!isLoggedin);
+  // }
 
   const toggleDarkmode = () => {
     setisDarkmode(!isDarkmode);
@@ -32,9 +37,15 @@ export default function FrontPage() {
     const data = await Searchthemovie(searchvalue, page);
     setsearchresult(data);
   };
-  const toggleDropdown = () => {
+  const toggleDropdown = (e) => {
+    e.stopPropagation();
     setisDropdownOpen(!isDropdownOpen);
   };
+  window.addEventListener("click", () => {
+    if (isDropdownOpen) {
+      setisDropdownOpen(false);
+    }
+  });
 
   return (
     <>
@@ -94,11 +105,10 @@ export default function FrontPage() {
                     onClick={toggleDarkmode}
                   ></input> */}
                 </a>
-                <a className="Logout-dropdown" onClick={toggleLoggedin}>
-                  <span class="material-symbols-outlined dropdown">
-                    {isLoggedin ? "Login" : "Logout"}
-                  </span>
-                  {isLoggedin ? "Log in" : "Log out"}
+                <a className="Logout-dropdown" onClick={Gotopage}>
+                  <span class="material-symbols-outlined dropdown">Login</span>
+                  {/* {isLoggedin ? "Log in" : "Log out"} */}
+                  Log in
                 </a>
               </div>
             ) : null}
@@ -114,8 +124,10 @@ export default function FrontPage() {
           path="/search"
           element={
             <Searchresults result={searchresult} refetch={handlesearch} />
-          } //you can put any variable you want to put at result place
-        />
+          }
+        />{" "}
+        //you can put any variable you want to put at result place
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
