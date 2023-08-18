@@ -7,7 +7,7 @@
 .box {
     display: flex;
     justify-content: center;
-    height: 400px;
+    height: 410px;
     width: 400px;
     border: solid 2px none;
     border-radius: 10px;
@@ -71,37 +71,49 @@
 }
 
 .signup-button:hover {
-    background-color: #080710;
+    background-color: rgb(30, 55, 97);
     color: white;
 }
 
 .social {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 1em;
+    gap: 1em;
 }
 
-.social div {
-    width: 100px;
-    border-radius: 3px;
-    padding: 5px 10px 10px 5px;
-    background-color: rgb(255, 255, 255);
-    color: #000000;
+.goggle,
+.facebook {
+    width: 20vw;
+    height: 3.5vh;
+    border-radius: 5px;
+    border: none;
     text-align: center;
-    align-self: center;
-    font-weight: 500;
-    transition: all 0.5s ease-in;
-
+    transition: all 0.1s linear;
+    cursor: pointer;
+    margin-bottom: 5px;
 }
 
-.go {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.goggle:active,
+.facebook:active {
+    transform: translateY(2px);
 }
 
-.social .go,
-.social .fb {
-    cursor: default;
-    color: white;
+.goggle:hover,
+.facebook:hover {
+    transform: translateY(-2px);
+}
+
+img {
+    margin-top: 3px;
+}
+
+.footer {
+    text-align: center;
+    padding-top: 0.3rem;
+    text-decoration: none;
+}
+
+Link {
+    text-decoration: none;
 }

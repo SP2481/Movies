@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Styling/Login.css";
 export default function Login() {
   return (
@@ -5,7 +6,7 @@ export default function Login() {
       <div class="main-box">
         <div class="box">
           <form className="form">
-            <h3 className="heading">Sign Up</h3>
+            <h3 className="heading">Log in</h3>
 
             <label for="Email" className="labels">
               Email
@@ -29,16 +30,21 @@ export default function Login() {
               className="signin-input"
             />
             <button id="button" type="button" className="signup-button">
-              Sign up
+              Log in
             </button>
             <div class="social">
-              <div class="go">
+              <button className="goggle">
+                {" "}
                 <img src="src\Images\search.png" alt="goggle" height="18px" />
-              </div>
-              <div class="fb">
+              </button>
+
+              <button className="facebook">
                 <img src="src\Images\facebook.png" alt="goggle" height="18px" />
-              </div>
+              </button>
             </div>
+            <p className="footer">
+              Need an account? <Link to="">Sign up</Link>
+            </p>
           </form>
         </div>
       </div>
