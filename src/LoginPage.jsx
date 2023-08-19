@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import facebook from "./Images/facebook.png";
+import goggle from "./Images/search.png";
 import "./Styling/Login.css";
 export default function Login() {
   return (
@@ -35,11 +37,11 @@ export default function Login() {
             <div class="social">
               <button className="goggle">
                 {" "}
-                <img src="src\Images\search.png" alt="goggle" height="18px" />
+                <img src={goggle} alt="goggle" height="18px" />
               </button>
 
               <button className="facebook">
-                <img src="src\Images\facebook.png" alt="goggle" height="18px" />
+                <img src={facebook} alt="goggle" height="18px" />
               </button>
             </div>
             <p className="footer">

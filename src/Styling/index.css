@@ -21,6 +21,44 @@
     color: white;
 }
 
+@media screen and (max-width:768px) {
+    .Navbar {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    h1 a {
+        margin-top: 10px;
+        /* Add margin to prevent overlap with title */
+    }
+
+    .right-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 5px;
+        margin-left: 8px;
+    }
+
+    .wishlist,
+    .Menu-button {
+        margin-top: 8px;
+    }
+
+    .search-container {
+        margin-top: 10px;
+    }
+
+    .searchbarshow {
+        width: 100%;
+        max-width: 300px;
+        margin-right: 0;
+    }
+
+}
+
 h1 a {
     font-size: 150%;
     text-decoration: none;
@@ -43,6 +81,10 @@ h1 a {
     gap: 0.2em;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+}
 
 .searchbarshow {
     border: black;
@@ -71,6 +113,7 @@ h1 a {
     font-size: 92%;
     font-weight: 600;
     text-align: center;
+    margin-top: 5px;
 }
 
 .right-nav button:active {
@@ -276,9 +319,6 @@ h1 a {
         font-size: 3rem;
     }
 
-    .searchbarshow {
-        display: none;
-    }
 
     .right-nav button {
         height: 40px;
@@ -296,18 +336,53 @@ h1 a {
     .Comedy-movies,
     .Bollywood-movies,
     .Action-movies {
-        width: 90%;
-        margin: 2em 0 0 2.3em;
+        max-width: 90%;
+
+
     }
 }
 
 @media(max-width:420px) {
     h1 a {
         font-size: 2.5rem;
+        margin-top: 12px;
     }
 
+    .Navbar {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    .right-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 5px;
+        margin-left: 8px;
+        gap: 0.2em;
+    }
+
+
+    .wishlist,
+    .Menu-button {
+        margin-top: 10px;
+
+
+    }
+
+    .search-container {
+        margin-top: 10px;
+        gap: 5px;
+    }
+
+
+
     .searchbarshow {
-        display: none;
+        width: 100%;
+        max-width: 300px;
+        margin-right: 0;
     }
 
     .shows,
@@ -320,7 +395,4 @@ h1 a {
         margin: 1.4rem 0.5em 0 .5rem;
     }
 
-    .right-nav button {
-        margin-left: 3px;
-    }
 }

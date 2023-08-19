@@ -144,6 +144,7 @@ li {
 
 .both-buttons {
     display: flex;
+    justify-content: space-between;
     gap: 2rem;
 
 }
@@ -175,11 +176,11 @@ li {
     .Poster {
         padding-right: 15px;
         width: 40vw;
-        height: 40vh;
+        height: 30vh;
     }
 
     .right-data {
-        top: 48%;
+        top: 43%;
         left: 5%;
         right: auto;
         width: 90%;
@@ -196,30 +197,34 @@ li {
     .homepage-button {
         width: 30vw;
     }
+
+    .both-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+
+    }
 }
 
 @media (max-width: 420px) {
 
     .Poster {
-        width: 50vw;
-        height: 36vh;
+        width: 55vw;
+        height: 30vh;
     }
 
     .right-data {
         padding-top: 0;
+        margin-top: 0;
     }
 
-    .trailer-button {
-        padding: 0.35em;
-        font-weight: 550;
+    .both-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
 
     }
 
-    .homepage-button {
-        padding: 14px;
-        font-weight: 550;
-        margin: 0.5;
-    }
 
     .title {
         font-size: 35px;

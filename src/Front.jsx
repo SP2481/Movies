@@ -54,27 +54,31 @@ export default function FrontPage() {
           <Link to="/">Cinematrix</Link>
         </h1>
         <div className="right-nav">
-          <input
-            type="text"
-            placeholder="Search"
-            id="SearchBar"
-            className="searchbarshow"
-            value={searchvalue}
-            onChange={handleinputchange}
-          />
-          <button
-            type="submit"
-            onClick={async () => {
-              if (searchvalue !== "") {
-                await handlesearch(1);
-                navigate("/search");
-              } else {
-                alert("Enter search input");
-              }
-            }}
-          >
-            <span className="material-symbols-outlined">search</span>
-          </button>
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Search"
+              id="SearchBar"
+              className="searchbarshow"
+              value={searchvalue}
+              onChange={handleinputchange}
+            />
+
+            <button
+              type="submit"
+              onClick={async () => {
+                if (searchvalue !== "") {
+                  await handlesearch(1);
+                  navigate("/search");
+                } else {
+                  alert("Enter search input");
+                }
+              }}
+              className="search-button"
+            >
+              <span className="material-symbols-outlined">search</span>
+            </button>
+          </div>
           <button className="wishlist" type="button">
             <span className="material-symbols-outlined">favorite</span>
           </button>
