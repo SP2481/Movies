@@ -7,7 +7,7 @@
 .box {
     display: flex;
     justify-content: center;
-    height: 410px;
+    height: auto;
     width: 400px;
     border: solid 2px none;
     border-radius: 10px;
@@ -38,6 +38,12 @@
     font-weight: 500;
 }
 
+.input-data {
+    display: flex;
+    flex-direction: column;
+
+}
+
 .signin-input {
     display: block;
     height: 50px;
@@ -53,6 +59,11 @@
 .check {
     width: 20px;
     height: 50px;
+}
+
+b {
+    color: red;
+    font-size: small;
 }
 
 .signup-button {
@@ -111,6 +122,7 @@ img {
 .footer {
     text-align: center;
     padding-top: 0.3rem;
+    padding-bottom: 7px;
     text-decoration: none;
 }
 

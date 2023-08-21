@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import ErrorBoundary from "./Errorboundary";
 import FrontPage from "./Front";
+
 const queryclient = new QueryClient({
   defaultOptions: {
     queries: {

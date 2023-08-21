@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import facebook from "./Images/facebook.png";
@@ -6,40 +6,58 @@ import goggle from "./Images/search.png";
 import "./Styling/Login.css";
 import { SignInWithFacebook, SignInWithGoogle, auth } from "./firebase";
 
-export default function Login() {
+export default function SignUp() {
   const navigate = useNavigate();
   const [values, setValues] = useState({
+    username: "",
     email: "",
     password: "",
   });
   const [errMsg, seterrMsg] = useState("");
   const [buttonDisabled, setbuttonDisabled] = useState(false);
-  function handleSubmit() {
-    if (!values.email || !values.password) {
-      seterrMsg("Fill all Input Fields");
+  const handleSubmit = () => {
+    if (!values.username || !values.email || !values.password) {
+      seterrMsg("*Fill all input fields");
       return;
     }
     seterrMsg("");
     setbuttonDisabled(true);
-    signInWithEmailAndPassword(auth, values.email, values.password)
-      //this will give me a promise
-      .then((res) => {
+    createUserWithEmailAndPassword(auth, values.email, values.password)
+      .then(async (res) => {
         setbuttonDisabled(false);
+        const user = res.user;
+        await updateProfile(user, {
+          displayName: values.username,
+        });
         navigate("/");
       })
       .catch((err) => {
         setbuttonDisabled(false);
         seterrMsg(err.message);
       });
-  }
+  };
 
   return (
     <>
       <div class="main-box">
         <div class="box">
           <form className="form">
-            <h3 className="heading">Log in</h3>
+            <h3 className="heading">Sign up</h3>
             <div className="input-data">
+              <label for="name" className="labels">
+                Username
+              </label>
+              <input
+                type="text"
+                placeholder="Username"
+                id="username"
+                required
+                className="signin-input"
+                onChange={(event) => {
+                  setValues({ ...values, username: event.target.value });
+                }}
+              />
+
               <label for="Email" className="labels">
                 Email
               </label>
@@ -75,7 +93,7 @@ export default function Login() {
                 onClick={handleSubmit}
                 disabled={buttonDisabled}
               >
-                Log in
+                Sign Up
               </button>
             </div>
             <div class="social">
@@ -88,8 +106,9 @@ export default function Login() {
                 <img src={facebook} alt="goggle" height="18px" />
               </button>
             </div>
+
             <p className="footer">
-              Need an account? <Link to="/signup">Sign up</Link>
+              Already have an account? <Link to="/login">Log in</Link>
             </p>
           </form>
         </div>

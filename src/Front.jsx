@@ -3,7 +3,9 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./Home";
 import Login from "./LoginPage";
 import Movieinfo from "./Movies/Movieinfo";
+import Profilepage from "./Profilepage";
 import Searchresults from "./Searchresults";
+import SignUp from "./SignUp";
 import "./Styling/toggle.css";
 import ShowInfo from "./TV/ShowInfo";
 import Searchthemovie from "./collect/fetchsearch";
@@ -14,12 +16,15 @@ export default function FrontPage() {
 
   const [isDropdownOpen, setisDropdownOpen] = useState(false);
   const [isDarkmode, setisDarkmode] = useState(false);
-  // const [isLoggedin, setisLoggedin] = useState(true);
+  // const [isLoggedin, setisLoggedin] = useState(false);
   const screenwidth = window.innerWidth;
   const navigate = useNavigate();
 
   function Gotopage() {
     navigate("/login");
+  }
+  function gotoProfile() {
+    navigate("/profile");
   }
 
   // function toggleLoggedin() {
@@ -94,21 +99,11 @@ export default function FrontPage() {
 
             {isDropdownOpen ? (
               <div className="dropdown-content">
-                <a href="/">
+                <a onClick={gotoProfile}>
                   <span class="material-symbols-outlined dropdown">person</span>
                   Profile
                 </a>
-                <a href="">
-                  <span class="material-symbols-outlined dropdown">
-                    dark_mode
-                  </span>
-                  Dark Mode
-                  {/* <input
-                    type="checkbox"
-                    className="l"
-                    onClick={toggleDarkmode}
-                  ></input> */}
-                </a>
+
                 <a className="Logout-dropdown" onClick={Gotopage}>
                   <span class="material-symbols-outlined dropdown">Login</span>
                   {/* {isLoggedin ? "Log in" : "Log out"} */}
@@ -130,8 +125,9 @@ export default function FrontPage() {
             <Searchresults result={searchresult} refetch={handlesearch} />
           }
         />{" "}
-        //you can put any variable you want to put at result place
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profilepage />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </>
   );
