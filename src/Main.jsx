@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import AuthProvider from "./AuthProvider";
 import ErrorBoundary from "./Errorboundary";
 import FrontPage from "./Front";
 
@@ -16,9 +17,11 @@ const Main = () => {
   return (
     <ErrorBoundary>
       <BrowserRouter>
-        <QueryClientProvider client={queryclient}>
-          <FrontPage />
-        </QueryClientProvider>
+        <AuthProvider>
+          <QueryClientProvider client={queryclient}>
+            <FrontPage />
+          </QueryClientProvider>
+        </AuthProvider>
       </BrowserRouter>
     </ErrorBoundary>
   );

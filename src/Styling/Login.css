@@ -81,6 +81,10 @@ b {
     margin-left: 0;
 }
 
+.signup-button:disabled {
+    background-color: rgb(47, 51, 86);
+}
+
 .signup-button:hover {
     background-color: rgb(30, 55, 97);
     color: white;

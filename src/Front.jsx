@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { Authcontext } from "./AuthProvider";
 import Home from "./Home";
 import Login from "./LoginPage";
 import Movieinfo from "./Movies/Movieinfo";
@@ -13,27 +14,9 @@ import Searchthemovie from "./collect/fetchsearch";
 export default function FrontPage() {
   const [searchvalue, setsearchvalue] = useState("");
   const [searchresult, setsearchresult] = useState([]);
-
+  const { user, isLoggedin } = useContext(Authcontext);
   const [isDropdownOpen, setisDropdownOpen] = useState(false);
-  const [isDarkmode, setisDarkmode] = useState(false);
-  // const [isLoggedin, setisLoggedin] = useState(false);
-  const screenwidth = window.innerWidth;
   const navigate = useNavigate();
-
-  function Gotopage() {
-    navigate("/login");
-  }
-  function gotoProfile() {
-    navigate("/profile");
-  }
-
-  // function toggleLoggedin() {
-  //   setisLoggedin(!isLoggedin);
-  // }
-
-  const toggleDarkmode = () => {
-    setisDarkmode(!isDarkmode);
-  };
 
   const handleinputchange = (event) => {
     setsearchvalue(event.target.value);
@@ -99,16 +82,17 @@ export default function FrontPage() {
 
             {isDropdownOpen ? (
               <div className="dropdown-content">
-                <a onClick={gotoProfile}>
+                <Link to="/profile">
                   <span class="material-symbols-outlined dropdown">person</span>
-                  Profile
-                </a>
+                  <h2>{isLoggedin ? user.displayName : "Profile"}</h2>
+                </Link>
 
-                <a className="Logout-dropdown" onClick={Gotopage}>
-                  <span class="material-symbols-outlined dropdown">Login</span>
-                  {/* {isLoggedin ? "Log in" : "Log out"} */}
-                  Log in
-                </a>
+                <Link className="Logout-dropdown" to="/login">
+                  <span class="material-symbols-outlined dropdown">
+                    {!isLoggedin ? "login" : "logout"}
+                  </span>
+                  {!isLoggedin ? "Log in" : "Log out"}
+                </Link>
               </div>
             ) : null}
           </div>
@@ -124,7 +108,7 @@ export default function FrontPage() {
           element={
             <Searchresults result={searchresult} refetch={handlesearch} />
           }
-        />{" "}
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profilepage />} />
         <Route path="/signup" element={<SignUp />} />

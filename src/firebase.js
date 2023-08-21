@@ -24,9 +24,11 @@ export default app;
 
 export function SignInWithGoogle() {
   signInWithPopup(auth, provider)
-    .then((res) => {})
+    .then((res) => {
+      console.log("login");
+    })
     .catch((err) => {
-      console.log(err.message);
+      console.log(err);
     });
 }
 
@@ -36,7 +38,7 @@ export function SignInWithGoogleRedirect() {
       console.log(result);
     })
     .catch((err) => {
-      console.log(err.message);
+      console.log(err);
     });
 }
 

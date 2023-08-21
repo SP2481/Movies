@@ -1,27 +1,25 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Authcontext } from "./AuthProvider";
 import "./Styling/Profilepage.css";
-import { auth } from "./firebase";
 
 export default function Profilepage() {
-  const [username, setusername] = useState("");
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setusername(user.displayName);
-      }
-      setusername("You havent logged in");
-    });
-  });
+  const { user, isLoggedin } = useContext(Authcontext);
+
+  const letter = user?.displayName?.slice(0, 1) || null;
   return (
     <div className="profilepage">
-      <div className="ac-icon"></div>
+      <div className="ac-icon">
+        <h1 className="letter">{letter}</h1>
+      </div>
       <div className="user-data">
-        <h1 className="user-name">{username}</h1>
-        <p className="user-email">user email</p>
+        <h1 className="user-name">
+          {isLoggedin ? user.displayName : <Link to="/login">Login</Link>}
+        </h1>
+        <p className="user-email">{user.email}</p>
         <button className="goto-homepage">
           <Link to="/">
-            <span>Button</span>
+            <span>Home</span>
           </Link>
         </button>
       </div>
