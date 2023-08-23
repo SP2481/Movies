@@ -88,7 +88,7 @@ export default function FrontPage() {
                 </Link>
 
                 {isLoggedin ? (
-                  <Link className="Logout-dropdown" to={SignOut}>
+                  <Link className="Logout-dropdown" onClick={SignOut}>
                     <span class="material-symbols-outlined dropdown">
                       logout
                     </span>

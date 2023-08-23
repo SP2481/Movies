@@ -9,8 +9,10 @@ export default function AuthProvider({ children }) {
   const navigate = useNavigate();
   const SignOut = async () => {
     await auth.signOut();
-    navigate("/");
     setisLoggedin(false);
+    setuser(null);
+    navigate("/");
+    console.log("signed out");
   };
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -21,7 +23,7 @@ export default function AuthProvider({ children }) {
         setuser(null);
       }
     });
-  });
+  }, [auth]);
 
   return (
     <Authcontext.Provider value={{ user, isLoggedin, SignOut }}>

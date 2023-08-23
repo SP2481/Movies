@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPreloader(false); // After the delay, hide the preloader
-    }, 2000);
+    }, 1200);
 
     return () => clearTimeout(timer); // Clean up the timeout on component unmount
   }, []);
