@@ -14,7 +14,7 @@ import Searchthemovie from "./collect/fetchsearch";
 export default function FrontPage() {
   const [searchvalue, setsearchvalue] = useState("");
   const [searchresult, setsearchresult] = useState([]);
-  const { user, isLoggedin } = useContext(Authcontext);
+  const { user, isLoggedin, SignOut } = useContext(Authcontext);
   const [isDropdownOpen, setisDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -87,12 +87,21 @@ export default function FrontPage() {
                   <h2>{isLoggedin ? user.displayName : "Profile"}</h2>
                 </Link>
 
-                <Link className="Logout-dropdown" to="/login">
-                  <span class="material-symbols-outlined dropdown">
-                    {!isLoggedin ? "login" : "logout"}
-                  </span>
-                  {!isLoggedin ? "Log in" : "Log out"}
-                </Link>
+                {isLoggedin ? (
+                  <Link className="Logout-dropdown" to={SignOut}>
+                    <span class="material-symbols-outlined dropdown">
+                      logout
+                    </span>
+                    Log out
+                  </Link>
+                ) : (
+                  <Link className="Logout-dropdown" to="/login">
+                    <span class="material-symbols-outlined dropdown">
+                      login
+                    </span>
+                    Log in
+                  </Link>
+                )}
               </div>
             ) : null}
           </div>
