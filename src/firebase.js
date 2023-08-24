@@ -28,7 +28,7 @@ export function SignInWithGoogle() {
       console.log("login");
     })
     .catch((err) => {
-      console.log(err);
+      console.log("goggle " + err);
     });
 }
 
@@ -45,5 +45,7 @@ export function SignInWithGoogleRedirect() {
 export function SignInWithFacebook() {
   signInWithPopup(auth, FBprovider)
     .then((res) => {})
-    .catch((err) => {});
+    .catch((err) => {
+      console.log("facebook" + err);
+    });
 }
