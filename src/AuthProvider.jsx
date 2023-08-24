@@ -19,6 +19,7 @@ export default function AuthProvider({ children }) {
       if (user) {
         setuser(user);
         setisLoggedin(true);
+        navigate("/");
       } else {
         setuser(null);
       }
