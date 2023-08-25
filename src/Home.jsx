@@ -18,7 +18,7 @@ const Home = () => {
     return () => clearTimeout(timer); // Clean up the timeout on component unmount
   }, []);
   return (
-    <div>
+    <div className="Home">
       {showPreloader && <Preloader />}
       <Movies />
       <TVList />

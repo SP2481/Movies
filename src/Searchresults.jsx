@@ -52,7 +52,9 @@ export default function Searchresults({ result, refetch }) {
         >
           <span>Prev</span>
         </button>
-        <h3 className="pageNum ">{result.page}</h3>
+        <h3 className="pageNum ">
+          {result.page}..({result.total_pages})
+        </h3>
         <button
           className="next-button butt"
           onClick={() => {

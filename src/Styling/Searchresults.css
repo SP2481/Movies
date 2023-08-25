@@ -7,15 +7,12 @@
 
 .results-container {
     display: flex;
-    width: 50vw;
-    height: 20vh;
+    width: 60vw;
+    height: 25vh;
     border: 1px solid transparent;
     border-radius: 10px;
     margin-bottom: 1em;
     box-shadow: 5px 5px 10px 2px rgb(181, 181, 181);
-    flex-grow: 1;
-    max-width: 60vw;
-    flex-shrink: 0;
 }
 
 .result-image>h1 {
@@ -28,7 +25,7 @@
 
 .results-poster {
     width: 10vw;
-    height: 20vh;
+    height: 24vh;
     padding: 10px;
 }
 
@@ -78,8 +75,7 @@
 
 .pageNum {
     font-weight: 100;
-    font-size: 1.5em;
-    font-weight: 100;
+    font-size: small;
 }
 
 .butt {
@@ -102,6 +98,10 @@
     display: inline-block;
     position: relative;
     transition: 0.5s;
+}
+
+.butt:disabled {
+    background-color: rgb(16, 27, 55);
 }
 
 .next-button span:after {
@@ -140,22 +140,35 @@
     left: 0;
 }
 
-@media (max-width:420px) {
-    .total-viewport {
-        width: 100%;
 
-    }
 
+@media screen and (max-width:800px) {
     .results-container {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-
+        width: 80vw;
     }
 
     .results-poster {
-        width: 15vw;
-        height: 20vh;
+        width: 20vw;
+    }
+
+    .result-image>h1 {
+        width: 20vw;
+    }
+}
+
+@media (max-width:420px) {
+
+    .results-container {
+        width: 95vw;
+    }
+
+    .results-poster {
+        width: 30vw;
+        height: 24vh;
         padding: 10px;
+    }
+
+    .result-image>h1 {
+        width: 30vw;
     }
 }
