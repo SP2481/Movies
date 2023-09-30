@@ -39,10 +39,12 @@ export default function ActionMovies() {
           {Movielist.data.results.map((movie) => (
             <div key={movie.id} id={movie.id} className="movie-card">
               <div className="movie-image">
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.original_title}
-                ></img>
+                <Link to={`/movie/${movie.id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                  ></img>
+                </Link>
               </div>
               <h3 className="movie-title">
                 <Link to={`/movie/${movie.id}`} className="title">
