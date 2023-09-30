@@ -239,16 +239,6 @@ h1 a {
 
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-100%);
-        /* Move the list to the left by its width */
-    }
-}
 
 ::-webkit-scrollbar {
     display: none;

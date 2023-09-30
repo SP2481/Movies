@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   signInWithRedirect,
 } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const FBprovider = new FacebookAuthProvider();
 
@@ -20,6 +21,7 @@ const app = initializeApp({
 });
 
 export const auth = getAuth(app);
+export const db = getFirestore(app);
 export default app;
 
 export function SignInWithGoogle() {

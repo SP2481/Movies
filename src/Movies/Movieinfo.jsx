@@ -1,11 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link, useParams } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Authcontext } from "../AuthProvider";
 import "../Styling/Info.css";
+import { UselistContext } from "../WishlistProvider";
 import FetchYourMovie from "../collect/Fetchspecmovie";
 
 export default function Movieinfo() {
   const { id } = useParams();
   const spcl = useQuery(["movie", id], FetchYourMovie);
+  const { user, isLoggedin } = useContext(Authcontext);
+  const { addtoWatchlist } = UselistContext();
+  const navigate = useNavigate();
+  const [isAdded, setisAdded] = useState(false);
   if (spcl.isLoading) {
     return (
       <div className="pre-loader">
@@ -20,7 +27,15 @@ export default function Movieinfo() {
   let hours = Math.floor(result.runtime / 60);
   let minutes = result.runtime % 60;
   const genres = result.genres.map((genre) => genre.name).join(", ");
-
+  const HandleWish = (movie) => {
+    if (user) {
+      addtoWatchlist(user.uid, movie);
+      setisAdded(true);
+    }
+  };
+  function handleLogin() {
+    navigate("/login");
+  }
   return (
     <>
       <div className="details-page">
@@ -65,11 +80,16 @@ export default function Movieinfo() {
             </h3>
             <p className="overview">{result.overview}</p>
             <div className="both-buttons">
-              <button className="trailer-button">Play trailer</button>
+              <button
+                className="wishlist-button"
+                onClick={isLoggedin ? () => HandleWish(result) : handleLogin}
+              >
+                Add to Wishlist
+              </button>
               <Link to={result.homepage}>
                 <button className="homepage-button">
                   <span>
-                    <p>Homepage</p>
+                    <p>Movie Site</p>
                   </span>
                 </button>
               </Link>

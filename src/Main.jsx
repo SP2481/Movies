@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import AuthProvider from "./AuthProvider";
 import ErrorBoundary from "./Errorboundary";
 import FrontPage from "./Front";
+import { ListProvider } from "./WishlistProvider";
 
 const queryclient = new QueryClient({
   defaultOptions: {
@@ -18,9 +19,11 @@ const Main = () => {
     <ErrorBoundary>
       <BrowserRouter>
         <AuthProvider>
-          <QueryClientProvider client={queryclient}>
-            <FrontPage />
-          </QueryClientProvider>
+          <ListProvider>
+            <QueryClientProvider client={queryclient}>
+              <FrontPage />
+            </QueryClientProvider>
+          </ListProvider>
         </AuthProvider>
       </BrowserRouter>
     </ErrorBoundary>

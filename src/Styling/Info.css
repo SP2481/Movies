@@ -89,7 +89,7 @@ li {
 
 
 
-.trailer-button {
+.wishlist-button {
     background-color: rgb(30, 55, 97);
     color: white;
     height: 6vh;
@@ -101,14 +101,18 @@ li {
 }
 
 
-.trailer-button:active {
+.wishlist-button:active {
     scale: 0.92;
 }
 
-.trailer-button:hover {
+.wishlist-button:hover {
     background: rgb(2, 29, 78);
     background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgb(0, 183, 255) 60%);
     color: rgb(4, 4, 38);
+}
+
+.wishlist-button:disabled {
+    background-color: black;
 }
 
 .tagline {
@@ -146,7 +150,6 @@ li {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
-
 }
 
 @media (max-width: 800px) {
@@ -190,7 +193,7 @@ li {
         flex-grow: 1;
     }
 
-    .trailer-button {
+    .wishlist-button {
         width: 40vw;
     }
 
@@ -224,7 +227,6 @@ li {
         gap: 2rem;
 
     }
-
 
     .title {
         font-size: 35px;

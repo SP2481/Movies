@@ -9,6 +9,7 @@ import Searchresults from "./Searchresults";
 import SignUp from "./SignUp";
 import "./Styling/toggle.css";
 import ShowInfo from "./TV/ShowInfo";
+import Wishlist from "./Wishlist";
 import Searchthemovie from "./collect/fetchsearch";
 
 export default function FrontPage() {
@@ -67,9 +68,11 @@ export default function FrontPage() {
               <span className="material-symbols-outlined">search</span>
             </button>
           </div>
-          <button className="wishlist" type="button">
-            <span className="material-symbols-outlined">favorite</span>
-          </button>
+          <Link to="/wishlist">
+            <button className="wishlist" type="button">
+              <span className="material-symbols-outlined">favorite</span>
+            </button>
+          </Link>
           <div className="Menu-button">
             <button
               className="menu"
@@ -121,6 +124,7 @@ export default function FrontPage() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profilepage />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
     </>
   );
