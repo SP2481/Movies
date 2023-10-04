@@ -62,7 +62,8 @@
 }
 
 sub {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 500;
 }
 
 .watchlist-info {
@@ -118,4 +119,65 @@ sub {
     -webkit-transition: all 0.25s;
     box-shadow: none;
     transform: scale(0.98);
+}
+
+.delete-button {
+    background-color: transparent;
+    border: none;
+}
+
+@media (max-width: 900px) {
+    .center-container {
+        height: auto;
+        padding: 20px;
+    }
+
+    .main-div {
+        width: 80%;
+        max-height: none;
+    }
+
+    .watchlist-title {
+        font-size: 1.5rem;
+        margin: 1rem 0 0.5rem 1rem;
+    }
+
+    .watchlistMovies {
+        width: 90%;
+    }
+
+    .gotologin {
+        padding: 10px 20px;
+    }
+}
+
+/* Responsive styles for 700px */
+@media (max-width: 700px) {
+    .main-div {
+        width: 90%;
+    }
+
+    .watchlist-title {
+        font-size: 1.2rem;
+    }
+
+    .watchlistMovies {
+        width: 95%;
+        height: 3rem;
+        margin: 0.3rem 0 0 0.3rem;
+    }
+}
+
+/* Responsive styles for 420px */
+@media (max-width: 420px) {
+    .watchlist-title {
+        font-size: 1rem;
+        margin: 0.5rem 0 0.2rem 0.5rem;
+    }
+
+    .watchlistMovies {
+        width: 98%;
+        height: 2.5rem;
+        margin: 0.2rem 0 0 0.2rem;
+    }
 }

@@ -11,7 +11,7 @@ import { db } from "./firebase";
 
 export default function Wishlist() {
   const { user, isLoggedin } = useContext(Authcontext);
-  const { wishlist, setWishlist } = UselistContext();
+  const { wishlist, setWishlist, removefromWishlist } = UselistContext();
   useEffect(() => {
     if (user) {
       const fetchWishlist = async () => {
@@ -23,7 +23,18 @@ export default function Wishlist() {
 
       fetchWishlist();
     }
-  }, [user]);
+  }, [user, wishlist]);
+
+  function handleDelete(movieId) {
+    if (user) {
+      removefromWishlist(user.uid, movieId).then(() =>
+        setWishlist((prevList) => {
+          prevList.filter((movie) => movie.id !== movieId);
+        })
+      );
+      console.log("removed");
+    }
+  }
   return (
     <div className="center-container">
       <div className="main-div">
@@ -48,9 +59,12 @@ export default function Wishlist() {
                   <Link to={`https://www.imdb.com/title/${movie.imdb_id}`}>
                     <img src={imdb} alt="" className="imdb-icon" />
                   </Link>
-                  <Link>
+                  <button
+                    className="delete-button"
+                    onClick={() => handleDelete(movie.id)}
+                  >
                     <img src={delet} alt="" className="delete-icon" />
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))
